@@ -5,32 +5,29 @@ import java.util.Iterator;
 import java.util.function.Predicate;
 
 public class ArrayList<T> implements List<T> {
-	private static int DEFAULT_CAPACITY = 16;
+	private static final int DEFAULT_CAPACITY = 16;
 	private T[] array;
 	private int size = 0;
-
 	@SuppressWarnings("unchecked")
 	public ArrayList(int capacity) {
 		array = (T[]) new Object[capacity];
 	}
-
 	public ArrayList() {
 		this(DEFAULT_CAPACITY);
 	}
-
 	@Override
 	public boolean add(T obj) {
-		if (size == array.length) {
-			realocate();
+		if(size == array.length) {
+			reallocate();
 		}
 		array[size++] = obj;
 		return true;
 	}
 
-	public void realocate() {
+	private void reallocate() {
 		array = Arrays.copyOf(array, array.length * 2);
+		
 	}
-
 	@Override
 	public boolean remove(Object pattern) {
 		// TODO Auto-generated method stub
@@ -41,7 +38,7 @@ public class ArrayList<T> implements List<T> {
 	public T[] toArray(T[] ar) {
 		T[] res = ar.length < size ? Arrays.copyOf(ar, size) : ar;
 		int index = 0;
-		for(T obj:this) {
+		for(T obj: this) {
 			res[index++] = obj;
 		}
 		if(res.length > size) {
@@ -75,7 +72,7 @@ public class ArrayList<T> implements List<T> {
 	}
 
 	@Override
-	public Iterator iterator() {
+	public Iterator<T> iterator() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -111,11 +108,11 @@ public class ArrayList<T> implements List<T> {
 
 	private void indexValidation(int index, boolean sizeInclusive) {
 		int bounder = sizeInclusive ? size : size - 1;
-		if (index < 0 || index > bounder) {
+		if (index < 0 || index > bounder ) {
 			throw new IndexOutOfBoundsException(index);
 		}
+		
 	}
-
 	@Override
 	public int indexOf(T pattern) {
 		// TODO Auto-generated method stub
