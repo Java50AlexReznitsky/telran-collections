@@ -6,9 +6,7 @@ import java.util.function.Predicate;
 
 public interface Collection<T> extends Iterable<T>{
 	boolean add(T obj);
-	
 	boolean remove(Object pattern);
-	
 	default void clear() {
 		removeIf(n -> true);
 	}

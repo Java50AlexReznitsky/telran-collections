@@ -1,14 +1,11 @@
 package telran.util.test;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import telran.util.List;
+import telran.util.*;
 
 abstract class ListTest extends CollectionTest {
 
@@ -86,6 +83,10 @@ abstract class ListTest extends CollectionTest {
 		assertEquals(33, list.get(0));
 		assertThrowsExactly(IndexOutOfBoundsException.class, () -> list.set(list.size(), 3));
 		assertThrowsExactly(IndexOutOfBoundsException.class, () -> list.set(-1, 3));
+	}
+	@Override 
+	protected void runArrayTest(Integer[] expected, Integer[] actual) {
+		assertArrayEquals(expected, actual);
 	}
 	
 
