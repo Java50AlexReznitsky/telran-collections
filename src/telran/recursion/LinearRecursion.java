@@ -36,7 +36,7 @@ public class LinearRecursion {
 	}
 
 	public static void displayArray(int[] ar) {
-		displayArray(0, ar, false);
+		displayArray(0, ar, false);  
 	}
 
 	private static void displayArray(int index, int[] ar, boolean isReverse) {
