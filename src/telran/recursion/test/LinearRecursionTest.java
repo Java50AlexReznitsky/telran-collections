@@ -2,11 +2,14 @@ package telran.recursion.test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static telran.recursion.LinearRecursion.displayArray;
-import static telran.recursion.LinearRecursion.displayReverseArray;
+import static telran.recursion.LinearRecursion.displayReversedArray;
 import static telran.recursion.LinearRecursion.factorial;
 import static telran.recursion.LinearRecursion.function;
+import static telran.recursion.LinearRecursion.isSubstring;
 import static telran.recursion.LinearRecursion.pow;
 import static telran.recursion.LinearRecursion.reverseArray;
 import static telran.recursion.LinearRecursion.square;
@@ -49,12 +52,12 @@ class LinearRecursionTest {
 		displayArray(ar);
 	}
 	@Test
-	void displayReverseArrayTest() {
+	void displayReversedArrayTest() {
 		System.out.println("\nDisplaying reversed range [1-5]");
 		int ar[] = {1,2,3,4,5};
-		displayReverseArray(ar);
+		displayReversedArray(ar);
 	}
-//	@Test
+	@Test
 	void sumArrayTest() {
 		int ar[] = {1,2,3,4,5};
 		assertEquals(15,sumArray(ar));
@@ -71,5 +74,15 @@ class LinearRecursionTest {
 		assertEquals(100,square(10));
 		assertEquals(100,square(-10));
 	}
+	@Test
+	 void isSubstringTest() {
+	  String str = "blobloblobloblokbloblo.";
+	  assertTrue(isSubstring(str, "blok"));
+	  assertTrue(isSubstring(str, "kblob"));
+	  assertTrue(isSubstring(str, "oblo."));
+	  assertFalse(isSubstring(str, "blod"));
+	  assertFalse(isSubstring(str, "bok"));
+	  assertFalse(isSubstring(str, "loko"));
+	 }
 
 }
