@@ -77,6 +77,7 @@ class LinearRecursionTest {
 	@Test
 	 void isSubstringTest() {
 	  String str = "blobloblobloblokbloblo.";
+//	  String str = "oblok";
 	  assertTrue(isSubstring(str, "blok"));
 	  assertTrue(isSubstring(str, "kblob"));
 	  assertTrue(isSubstring(str, "oblo."));

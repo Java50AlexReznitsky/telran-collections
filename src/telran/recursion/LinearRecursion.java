@@ -91,54 +91,21 @@ public class LinearRecursion {
 	}
 
 	public static boolean isSubstring(String string, String substring) {
-		String tmp = substring;
+//		String tmp = substring;
+		boolean res = false;
 		if (string.length() == 0 || substring.length() == 0 || substring.length() > string.length()) {
 			return false;
 		}
 		if (string.charAt(0) == substring.charAt(0) && substring.length() == 1) {
 			return true;
 		}
-		if (string.charAt(0) == substring.charAt(0)) {
+
+		if (string.charAt(0) == substring.charAt(0) && substring.length() != 1) {
 			isSubstring(string.substring(1), substring.substring(1));
+			res = true;
 		} else {
-			isSubstring(string.substring(1), substring = tmp);
+			isSubstring(string.substring(1), substring);
 		}
-		return false;
+		return res;
 	}
-
-//	public static int index = 0;
-//	public static int subIndex = 0;
-//	public static int counter = 0;
-//
-//	public static boolean isSubstring(String string, String substring) {
-//		boolean res = false;
-//		if (string.length() != 0 && substring.length() != 0 && string.length() >= substring.length()) {
-//			res = subString(string, substring) ? true : false;
-//		}
-//		return res;
-//	}
-//
-//	public static boolean subString(String string, String subString) {
-//		boolean res = false;
-//		if (index == string.length()) {
-//			return false;
-//		}
-//		if (string.charAt(index) == subString.charAt(subIndex)) {
-//			index++;
-//			subIndex++;
-//			counter++;
-//			if (counter == subString.length()) {
-//				return true;
-//			}
-//			subString(string, subString);
-//		} else {
-//			counter = 0;
-//			subIndex = 0;
-//			isSubstring(string, subString);
-//		}
-//		return res;
-//	}
-	
-
-
 }
