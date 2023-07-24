@@ -91,7 +91,6 @@ public class LinearRecursion {
 	}
 
 	public static boolean isSubstring(String string, String substring) {
-//		String tmp = substring;
 		boolean res = false;
 		if (string.length() == 0 || substring.length() == 0 || substring.length() > string.length()) {
 			return false;
@@ -101,11 +100,11 @@ public class LinearRecursion {
 		}
 
 		if (string.charAt(0) == substring.charAt(0) && substring.length() != 1) {
-			isSubstring(string.substring(1), substring.substring(1));
-			res = true;
+			res = isSubstring(string.substring(1), substring.substring(1));
+			
 		} else {
-			isSubstring(string.substring(1), substring);
+			res = isSubstring(string.substring(1), substring);
 		}
-		return res;
+		return res;
 	}
 }
